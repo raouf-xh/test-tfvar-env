@@ -1,0 +1,14 @@
+projects:
+  - name: observability_nonprod
+    dir: .
+    workflow: observability_nonprod
+workflows:
+  observability_nonprod:
+    env_vars:
+      commands:
+        - name: TF_VAR_INPUT_VAR
+          value_from: INPUT_VAR
+    plan:
+      steps:
+        - init
+        - plan
