@@ -3,15 +3,14 @@ name: Digger Workflow
 on:
   workflow_dispatch:
     inputs:
-      id:
-        description: 'run identifier'
+      spec:
+        description: 'spec'
+        required: true
+      run-name:
         required: false
-      job:
-        description: 'Job description'
-        required: true
-      comment_id:
-        description: 'Comments'
-        required: true
+
+run-name: ${{ inputs.run_name }}
+
 jobs:
   digger-job:
     runs-on: ubuntu-latest
@@ -24,23 +23,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-    #  - uses: aws-actions/configure-aws-credentials@v4
-    #    with:
-    #      aws-region: 'us-east-1'
-    #      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    #      aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-      - uses: diggerhq/digger@v0.4.19
+      - uses: diggerhq/digger@v0.6.7
         with:
-#          setup-aws: true
-#          aws-role-to-assume: arn:aws:iam::731498386036:role/AWSReservedSSO_Aperio-DevOpsEngineer_e4e09890bb3a5602
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          digger-spec: ${{inputs.spec}}
           disable-locking: true
-          digger-hostname: 'https://cloud.digger.dev'
-          digger-organisation: 'digger'
- #         digger-token: ${{ secrets.DIGGER_TOKEN }}
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
