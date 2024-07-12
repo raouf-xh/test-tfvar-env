@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: diggerhq/digger@v0.6.7
+      - uses: diggerhq/digger@fix/pull-env-vars-for-job-in-cli-flow
         with:
           digger-spec: ${{inputs.spec}}
           disable-locking: true
