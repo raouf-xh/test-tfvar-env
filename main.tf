@@ -1,7 +1,7 @@
 variable "input_var" {
   description = "An input variable"
   type        = string
-  default     = "Hello, world2!"
+  default     = "Hello, world!"
 }
 
 output "variable_output" {
