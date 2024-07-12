@@ -1,4 +1,4 @@
-variable "input_var" {
+variable "INPUT_VAR" {
   description = "An input variable"
   type        = string
   default     = "Hello, world!"
