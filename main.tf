@@ -1,7 +1,7 @@
 variable "input_var" {
   description = "An input variable"
   type        = string
-  default     = "Hello, world!"
+  default     = "Hello, world2!"
 }
 
 output "variable_output" {
@@ -9,4 +9,3 @@ output "variable_output" {
   description = "This output shows the value of the input variable."
 }
 
-resource "null_resource" "test" {}
