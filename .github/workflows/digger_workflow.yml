@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: diggerhq/digger@v0.6.7
+      - uses: diggerhq/digger@fix/also-post-on-empty-plan
         with:
           digger-spec: ${{inputs.spec}}
           disable-locking: true
