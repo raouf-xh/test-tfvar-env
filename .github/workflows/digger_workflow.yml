@@ -6,7 +6,7 @@ on:
       spec:
         description: 'spec'
         required: true
-      run-name:
+      run_name:
         required: false
 
 run-name: ${{ inputs.run_name }}
